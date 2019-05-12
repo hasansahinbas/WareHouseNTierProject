@@ -16,8 +16,8 @@ namespace WareHouseNTierProject.Core.Service
         void Remove(T item);
         void Remove(Guid id);
         void RemoveAll(Expression<Func<T, bool>> exp);
-        void GetByID(Guid id);
-        void GetByDefault(Expression<Func<T, bool>> exp);
+        T GetByID(Guid id);
+        T GetByDefault(Expression<Func<T, bool>> exp);
 
         List<T> GetActive();
         List<T> GetDefault(Expression<Func<T, bool>> exp);

@@ -13,14 +13,14 @@ namespace WareHouseNTierProject.Map.Option
         public SupplierMap()
         {
             ToTable("dbo.Suppliers");
-            Property(x => x.CompanyName).HasMaxLength(100).IsRequired();
-            Property(x => x.ContactName).HasMaxLength(50).IsRequired();
-            Property(x => x.PhoneNumber).HasMaxLength(11).IsRequired();
+            Property(x => x.CompanyName).HasMaxLength(100).IsOptional();
+            Property(x => x.ContactName).HasMaxLength(50).IsOptional();
+            Property(x => x.PhoneNumber).HasMaxLength(11).IsOptional();
             Property(x => x.FaxNumber).HasMaxLength(50).IsOptional();
-            Property(x => x.PostalCode).IsRequired();
-            Property(x => x.Country).HasMaxLength(50).IsRequired();
-            Property(x => x.City).HasMaxLength(50).IsRequired();
-            Property(x => x.Address).HasMaxLength(150).IsRequired();
+            Property(x => x.PostalCode).IsOptional();
+            Property(x => x.Country).HasMaxLength(50).IsOptional();
+            Property(x => x.City).HasMaxLength(50).IsOptional();
+            Property(x => x.Address).HasMaxLength(150).IsOptional();
 
             HasMany(x => x.Products)
                 .WithRequired(x => x.Supplier)

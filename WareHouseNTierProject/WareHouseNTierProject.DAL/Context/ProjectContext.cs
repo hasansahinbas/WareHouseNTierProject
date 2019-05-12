@@ -17,23 +17,15 @@ namespace WareHouseNTierProject.DAL.Context
     {
         public ProjectContext()
         {
-            Database.Connection.ConnectionString= "Server=DESKTOP-4URQPH6;Database=WareHouse;Trusted_Connection=True";
+            Database.Connection.ConnectionString= "Server=DESKTOP-4URQPH6;Database=WareHouseyyyyy;Trusted_Connection=True";
         }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AppUserMap());
             modelBuilder.Configurations.Add(new CategoryMap());
-            modelBuilder.Configurations.Add(new OrderMap());
-            modelBuilder.Configurations.Add(new OrderDetailMap());
-            modelBuilder.Configurations.Add(new EmployeeMap());
-            modelBuilder.Configurations.Add(new ShipperMap());
-            modelBuilder.Configurations.Add(new SupplierMap());
             modelBuilder.Configurations.Add(new ProductMap());
-            modelBuilder.Configurations.Add(new CustomerMap());
-
+            modelBuilder.Configurations.Add(new SupplierMap());
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
             base.OnModelCreating(modelBuilder);
         }
 
@@ -41,13 +33,6 @@ namespace WareHouseNTierProject.DAL.Context
         DbSet<Category> Categories { get; set; }
         DbSet<Product> Products { get; set; }
         DbSet<Supplier> Suppliers { get; set; }
-        DbSet<Customer> Customers { get; set; }
-        DbSet<Shipper> Shippers { get; set; }
-        DbSet<Employee> Employees { get; set; }
-        DbSet<Order> Orders { get; set; }
-        DbSet<OrderDetail> OrderDetails { get; set; }
-
-
         public override int SaveChanges()
         {
             var modifiedEntries = ChangeTracker.Entries().Where(x => x.State == EntityState.Added || x.State == EntityState.Modified);
@@ -78,5 +63,7 @@ namespace WareHouseNTierProject.DAL.Context
             return base.SaveChanges();
 
         }
+
+
     }
 }

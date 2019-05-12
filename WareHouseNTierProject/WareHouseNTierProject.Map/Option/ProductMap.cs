@@ -14,10 +14,10 @@ namespace WareHouseNTierProject.Map.Option
         public ProductMap()
         {
             ToTable("dbo.Products");
-            Property(x => x.ProductName).HasMaxLength(50).IsRequired();
-            Property(x => x.Price).IsRequired();
-            Property(x => x.UnitInStock).IsRequired();
-            Property(x => x.Quantity).IsRequired();
+            Property(x => x.ProductName).HasMaxLength(50).IsOptional();
+            Property(x => x.Price).IsOptional();
+            Property(x => x.UnitInStock).IsOptional();
+            Property(x => x.Quantity).IsOptional();
 
             HasRequired(x => x.Category)
                 .WithMany(x => x.Products)

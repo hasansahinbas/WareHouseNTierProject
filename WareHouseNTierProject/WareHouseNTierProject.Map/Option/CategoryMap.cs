@@ -13,8 +13,8 @@ namespace WareHouseNTierProject.Map.Option
         public CategoryMap()
         {
             ToTable("dbo.Categories");
-            Property(x => x.Name).HasMaxLength(50).IsRequired();
-            Property(x => x.Description).HasMaxLength(150).IsRequired();
+            Property(x => x.Name).HasMaxLength(50).IsOptional();
+            Property(x => x.Description).HasMaxLength(150).IsOptional();
 
             HasMany(x => x.Products)
                 .WithRequired(x => x.Category)

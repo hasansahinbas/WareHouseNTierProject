@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WareHouseNTierProject.Utili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WareHouseNTierProject.DAL", "WareHouseNTierProject.DAL\WareHouseNTierProject.DAL.csproj", "{266E2D71-E951-4FAB-BE72-D69CC721D7BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WareHouseNTierProject.Service", "WareHouseNTierProject.Service\WareHouseNTierProject.Service.csproj", "{91589B84-4136-471C-B21C-337DDAD42626}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{266E2D71-E951-4FAB-BE72-D69CC721D7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{266E2D71-E951-4FAB-BE72-D69CC721D7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{266E2D71-E951-4FAB-BE72-D69CC721D7BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91589B84-4136-471C-B21C-337DDAD42626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91589B84-4136-471C-B21C-337DDAD42626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91589B84-4136-471C-B21C-337DDAD42626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91589B84-4136-471C-B21C-337DDAD42626}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

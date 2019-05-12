@@ -9,7 +9,7 @@ namespace WareHouseNTierProject.Model.Option
 {
     public class OrderDetail:CoreEntity
     {
-        public decimal? UnitPrice { get; set; }
-        public string Quantity { get; set; }
+        //public decimal? UnitPrice { get; set; }
+        //public string Quantity { get; set; }
     }
 }
