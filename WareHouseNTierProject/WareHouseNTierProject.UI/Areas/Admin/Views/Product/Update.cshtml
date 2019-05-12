@@ -4,5 +4,69 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
 }
 
-<h2>Update</h2>
+
+@model WareHouseNTierProject.UI.Areas.Admin.Models.VM.AddProductVM
+
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li class="active">Update Product</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Update Product</h3>
+                </div>
+                <form action="/Admin/Product/Update" enctype="multipart/form-data" method="post" role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="text">Product Name</label>
+                            <input type="text" name="ProductName" value="@Model.Products.ProductName" class="form-control" placeholder="Product Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Quantity</label>
+                            <input type="text" name="Quantity" value="@Model.Products.Quantity" class="form-control" placeholder="Quantity">
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Unit Price</label>
+                            <input type="text" name="Price" value="@Model.Products.Price" class="form-control" placeholder="Unit Price">
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Units In Stock</label>
+                            <input type="text" name="UnitInStock" value="@Model.Products.UnitInStock" class="form-control" placeholder="Units In Stock">
+                        </div>
+                        <div class="form-group">
+                            <label for="CategoryID">Choose Category</label>
+                            <select name="CategoryID" class="form-control">
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <option value="@item.ID">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="SupplierID">Choose Supplier</label>
+                            <select name="SupplierID" class="form-control">
+                                @foreach (var item in Model.Suppliers)
+                                {
+                                    <option value="@item.ID">@item.CompanyName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
 

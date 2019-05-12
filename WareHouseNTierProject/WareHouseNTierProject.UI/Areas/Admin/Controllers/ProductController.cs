@@ -49,26 +49,36 @@ namespace WareHouseNTierProject.UI.Areas.Admin.Controllers
         public ActionResult Update(Guid id)
         {
             Product product = _productService.GetByID(id);
-            ProductDTO model = new ProductDTO();
-            model.Price = product.Price;
-            model.Name = product.ProductName;
-            model.Quantity = product.Quantity;
-            model.UnitInStock = product.UnitInStock;
-            model.CategoryID = product.CategoryID;
+            AddProductVM model = new AddProductVM();
+            model.Products.Price = product.Price;
+            model.Products.ProductName = product.ProductName;
+            model.Products.Quantity = product.Quantity;
+            model.Products.UnitInStock = product.UnitInStock;
+            model.Categories = _categoryService.GetActive();
+            model.Suppliers = _supplierService.GetActive();
 
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Update(ProductDTO data)
+        public ActionResult Update(AddProductVM data)
         {
-            Product product = _productService.GetByID(data.ID);
-            product.ProductName = data.Name;
-            product.Price = data.Price;
-            product.Quantity = data.Quantity;
-            product.UnitInStock = data.UnitInStock;
-            product.CategoryID = data.CategoryID;
+            Product product = _productService.GetByID(data.Products.ID);
+            product.ProductName = data.Products.Name;
+            product.Price = data.Products.Price;
+            product.Quantity = data.Products.Quantity;
+            product.UnitInStock = data.Products.UnitInStock;
+            product.SupplierID = data.Products.SupplierID;
+            product.CategoryID = data.Products.SupplierID;
+            
+            
             _productService.Update(product);
+            return Redirect("/Admin/Product/ProductList");
+        }
+
+        public ActionResult Delete(Guid id)
+        {
+            _productService.Remove(id);
             return Redirect("/Admin/Product/ProductList");
         }
     }

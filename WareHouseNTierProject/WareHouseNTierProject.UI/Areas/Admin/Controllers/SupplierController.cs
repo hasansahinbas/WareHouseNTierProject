@@ -57,7 +57,7 @@ namespace WareHouseNTierProject.UI.Areas.Admin.Controllers
         {
             Supplier supplier = _supplierService.GetByID(model.ID);
 
-            supplier.CompanyName = model.CompanyName;
+            supplier.CompanyName=model.CompanyName;
             supplier.ContactName = model.ContactName;
             supplier.Address = model.Address;
             supplier.City =model.City;
