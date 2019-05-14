@@ -17,7 +17,7 @@ namespace WareHouseNTierProject.DAL.Context
     {
         public ProjectContext()
         {
-            Database.Connection.ConnectionString= "Server=DESKTOP-4URQPH6;Database=WareHouseyyyyy;Trusted_Connection=True";
+            Database.Connection.ConnectionString= "Server=DESKTOP-4URQPH6;Database=WareHouse;Trusted_Connection=True";
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

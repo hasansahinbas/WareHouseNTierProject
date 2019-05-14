@@ -50,10 +50,13 @@ namespace WareHouseNTierProject.UI.Areas.Admin.Controllers
         {
             Product product = _productService.GetByID(id);
             AddProductVM model = new AddProductVM();
+            model.Products.ID = product.ID;
             model.Products.Price = product.Price;
             model.Products.ProductName = product.ProductName;
             model.Products.Quantity = product.Quantity;
             model.Products.UnitInStock = product.UnitInStock;
+            model.Products.CategoryID = product.CategoryID;
+            model.Products.SupplierID = product.SupplierID;
             model.Categories = _categoryService.GetActive();
             model.Suppliers = _supplierService.GetActive();
 
@@ -61,15 +64,16 @@ namespace WareHouseNTierProject.UI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(AddProductVM data)
+        public ActionResult Update(ProductDTO data)
         {
-            Product product = _productService.GetByID(data.Products.ID);
-            product.ProductName = data.Products.Name;
-            product.Price = data.Products.Price;
-            product.Quantity = data.Products.Quantity;
-            product.UnitInStock = data.Products.UnitInStock;
-            product.SupplierID = data.Products.SupplierID;
-            product.CategoryID = data.Products.SupplierID;
+            Product product = _productService.GetByID(data.ID);
+            product.ProductName = data.ProductName;
+            product.Price = data.Price;
+            product.Quantity = data.Quantity;
+            product.UnitInStock = data.UnitInStock;
+            product.SupplierID = data.SupplierID;
+            product.CategoryID = data.CategoryID;
+           
             
             
             _productService.Update(product);

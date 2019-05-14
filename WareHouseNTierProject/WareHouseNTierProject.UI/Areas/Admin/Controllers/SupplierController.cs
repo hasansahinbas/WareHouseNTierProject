@@ -40,6 +40,7 @@ namespace WareHouseNTierProject.UI.Areas.Admin.Controllers
         {
             Supplier supplier = _supplierService.GetByID(id);
             SupplierDTO model = new SupplierDTO();
+            model.ID = supplier.ID;
             model.CompanyName = supplier.CompanyName;
             model.ContactName = supplier.ContactName;
             model.Address = supplier.Address;
@@ -53,18 +54,18 @@ namespace WareHouseNTierProject.UI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(SupplierDTO model)
+        public ActionResult Update(SupplierDTO data)
         {
-            Supplier supplier = _supplierService.GetByID(model.ID);
+            Supplier supplier = _supplierService.GetByID(data.ID);
 
-            supplier.CompanyName=model.CompanyName;
-            supplier.ContactName = model.ContactName;
-            supplier.Address = model.Address;
-            supplier.City =model.City;
-            supplier.Country = model.Country;
-            supplier.FaxNumber = model.FaxNumber;
-            supplier.PhoneNumber = model.PhoneNumber;
-            supplier.PostalCode = model.PostalCode;
+            supplier.CompanyName=data.CompanyName;
+            supplier.ContactName = data.ContactName;
+            supplier.Address = data.Address;
+            supplier.City =data.City;
+            supplier.Country = data.Country;
+            supplier.FaxNumber = data.FaxNumber;
+            supplier.PhoneNumber = data.PhoneNumber;
+            supplier.PostalCode = data.PostalCode;
             
             _supplierService.Update(supplier);
             return Redirect("/Admin/Supplier/SupplierList");
